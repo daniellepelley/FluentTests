@@ -1,7 +1,0 @@
-C:\Users\Daniel\Documents\Visual Studio 2013\Projects\AAATester\AAATester\bin\Debug\AAATester.dll
-C:\Users\Daniel\Documents\Visual Studio 2013\Projects\AAATester\AAATester\bin\Debug\AAATester.pdb
-C:\Users\Daniel\Documents\Visual Studio 2013\Projects\AAATester\AAATester\bin\Debug\nunit.framework.dll
-C:\Users\Daniel\Documents\Visual Studio 2013\Projects\AAATester\AAATester\bin\Debug\nunit.framework.xml
-C:\Users\Daniel\Documents\Visual Studio 2013\Projects\AAATester\AAATester\obj\Debug\AAATester.dll
-C:\Users\Daniel\Documents\Visual Studio 2013\Projects\AAATester\AAATester\obj\Debug\AAATester.pdb
-C:\Users\Daniel\Documents\Visual Studio 2013\Projects\AAATester\AAATester\obj\Debug\AAATester.csprojResolveAssemblyReference.cache

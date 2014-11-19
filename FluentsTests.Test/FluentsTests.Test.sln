@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentsTests.Test", "FluentsTests.Test\FluentsTests.Test.csproj", "{5DE9ED2A-6CAE-4D2A-97E7-11F9A825945E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AAATester", "..\AAA\AAA\AAATester\AAATester.csproj", "{2D496588-522A-4210-9A50-97B38CD389F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stubber", "..\Mocks\Stubber.csproj", "{37F681A8-56A1-4A1E-BF5D-D1BF860054B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DE9ED2A-6CAE-4D2A-97E7-11F9A825945E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DE9ED2A-6CAE-4D2A-97E7-11F9A825945E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DE9ED2A-6CAE-4D2A-97E7-11F9A825945E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DE9ED2A-6CAE-4D2A-97E7-11F9A825945E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D496588-522A-4210-9A50-97B38CD389F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D496588-522A-4210-9A50-97B38CD389F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D496588-522A-4210-9A50-97B38CD389F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D496588-522A-4210-9A50-97B38CD389F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37F681A8-56A1-4A1E-BF5D-D1BF860054B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37F681A8-56A1-4A1E-BF5D-D1BF860054B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37F681A8-56A1-4A1E-BF5D-D1BF860054B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37F681A8-56A1-4A1E-BF5D-D1BF860054B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
