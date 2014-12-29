@@ -15,7 +15,7 @@
             set { _status = value; }
         }
 
-        public string SetStatus(string status)
+        public string StatusIsSetTo(string status)
         {
             _status = status;
             return _status;

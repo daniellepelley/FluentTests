@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Text;
 using NUnit.Framework;
 
 namespace AAATester.Spec
@@ -15,14 +16,19 @@ namespace AAATester.Spec
             return new SpecMethod<TSut>(method);
         }
 
-        public static SpecWhenAnd<TSut> When<TSut>(this TSut sut, params Action<TSut>[] actions)
-        {
-            foreach (var action in actions)
-            {
-                action(sut);
-            }
-            return new SpecWhenAnd<TSut>(sut);
-        }
+        //public static SpecWhenAnd<TSut> When<TSut>(this TSut sut, params Expression<Action<TSut>>[] actions)
+        //{
+        //    foreach (var expression in actions)
+        //    {
+        //        var methodCallExp = (MethodCallExpression)expression.Body;
+        //        var methodName = methodCallExp.Method.Name;
+
+        //        var action = expression.Compile();
+
+        //        action(sut);
+        //    }
+        //    return new SpecWhenAnd<TSut>(sut);
+        //}
     }
 
     public class SpecMethod<TSut>
@@ -105,13 +111,43 @@ namespace AAATester.Spec
             _sut = sut;
         }
 
-        public SpecWhenAnd<TSut> When(params Action<TSut>[] actions)
+        public SpecWhenAnd<TSut> When(params Expression<Action<TSut>>[] actions)
         {
-            foreach (var action in actions)
+            foreach (var expression in actions)
             {
+                var methodCallExp = (MethodCallExpression)expression.Body;
+                var methodName = methodCallExp.Method.Name;
+
+                foreach (var argument in methodCallExp.Arguments)
+                {
+                    var lambda = Expression.Lambda(argument);
+                    var val = lambda.Compile().DynamicInvoke().ToString();
+
+
+                    var description = GetDescription(methodName, val);
+                }
+
+                var action = expression.Compile();
+
                 action(_sut);
             }
             return new SpecWhenAnd<TSut>(_sut);
+        }
+
+        private string GetDescription(string methodName, string value)
+        {
+            var sb = new StringBuilder();
+
+            foreach (char c in methodName)
+            {
+                if (char.IsUpper(c))
+                {
+                    sb.Append(" ");
+                }
+                sb.Append(c);
+            }
+
+            return "When " + sb.ToString().Trim() + " '" + value + "'";
         }
 
         public SpecThen<TSut> Then()

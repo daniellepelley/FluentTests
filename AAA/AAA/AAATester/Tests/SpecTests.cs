@@ -28,7 +28,7 @@ namespace AAATester.Tests
                 .Returns("Active");
 
             GivenAnActiveStatus()
-                .When(StatusIs("Completed"))
+                .When(x => x.StatusIsSetTo("Completed"))
                 .Then(x => x.Status)
                     .IsEqualTo("Completed")
                 .And(x => x.Status)
@@ -38,9 +38,9 @@ namespace AAATester.Tests
         [Test]
         public void Test3()
         {
-            new TestableClass("Active")
-                .When(x => x.SetStatus("Completed"))
-                .ThenValues(x => x.Status, "Completed").AreEqual();
+            //new TestableClass("Active")
+            //    .When(x => x.SetStatus("Completed"))
+            //    .ThenValues(x => x.Status, "Completed").AreEqual();
         }
     }
 
@@ -66,15 +66,15 @@ namespace AAATester.Tests
                 .Given(() => new TestableClass("Active"));
         }
 
-        public Action<TestableClass> StatusIs(string status)
-        {
-            return x => x.SetStatus(status);
-        }
+        //public Expression<Action<TestableClass>> StatusIsSetTo(string status)
+        //{
+        //    return x => x.StatusIsSetTo(status) ;
+        //}
 
         public static SpecMethod<TestableClass> SetStatusMethod()
         {
             return GivenAnActiveStatus()
-                .Method<TestableClass, Expression<Func<string, string>>>(x => s => x.SetStatus(s));
+                .Method<TestableClass, Expression<Func<string, string>>>(x => s => x.StatusIsSetTo(s));
         }
     }
 
@@ -82,7 +82,7 @@ namespace AAATester.Tests
     {
         public static SpecWhenAnd<TestableClass> WhenStatusIsSetTo(this SpecWhen<TestableClass> source, string status)
         {
-            return source.When(x => x.SetStatus("Completed"));
+            return source.When(x => x.StatusIsSetTo("Completed"));
         }
     }
 

@@ -13,11 +13,10 @@ namespace DescribeTests
 
         public Tests()
         {
-            It["This is no"] =
-                () =>
-                {
-                    str = "No";
-                };
+            It["This is no"] = () =>
+            {
+                str = "No";
+            };
 
             It["This is yes"] =
                 () =>

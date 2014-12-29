@@ -20,7 +20,7 @@ namespace AAATester.Tests
                 new TestCaseData(
                     Test<TestableClass>
                         .Arrange(() => new TestableClass("e"))
-                        .Act(x => x.SetStatus("fef"))
+                        .Act(x => x.StatusIsSetTo("fef"))
                         .AssertAreEqual(x => x.Status, "fef"))
                     .SetName("Test One")
                     .SetDescription(sb.ToString())
@@ -29,7 +29,7 @@ namespace AAATester.Tests
                 new TestCaseData(
                     Test<TestableClass>
                         .Arrange(() => new TestableClass("e"))
-                        .Act(x => x.SetStatus("fef"))
+                        .Act(x => x.StatusIsSetTo("fef"))
                         .AssertAreEqual(x => x.Status, "fef"))
                     .SetName("Test Two")
                     .SetDescription(sb.ToString())

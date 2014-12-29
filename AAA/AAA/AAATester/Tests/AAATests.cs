@@ -24,7 +24,7 @@ namespace AAATester.Tests
         {
             Test<TestableClass>
                 .Arrange(() => new TestableClass("e"))
-                .Act(x => x.SetStatus("fef"))
+                .Act(x => x.StatusIsSetTo("fef"))
                 .AssertAreEqual(x => x.Status, "fef");
         }
 
@@ -76,7 +76,7 @@ namespace AAATester.Tests
     {
         public Action<TestableClass> SetStatusTo(string value)
         {
-            return x => x.SetStatus(value);
+            return x => x.StatusIsSetTo(value);
         }
 
         public Func<TestableClass, bool> StatusIs(string value)
@@ -89,12 +89,12 @@ namespace AAATester.Tests
     {
         public static TestAssert<TestableClass> Act_SetToCompleted(this TestAct<TestableClass> source)
         {
-            return source.Act(sut => sut.SetStatus("Completed"));
+            return source.Act(sut => sut.StatusIsSetTo("Completed"));
         }
 
         public static TestAssert<TestableClass> Act_SetToActive(this TestAct<TestableClass> source)
         {
-            return source.Act(sut => sut.SetStatus("Active"));
+            return source.Act(sut => sut.StatusIsSetTo("Active"));
         }
 
         public static TestAssert<TestableClass> AssertStatusIs(this TestAssert<TestableClass> source, string status)
