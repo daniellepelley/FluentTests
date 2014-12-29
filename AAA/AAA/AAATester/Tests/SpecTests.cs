@@ -34,6 +34,14 @@ namespace AAATester.Tests
                 .And(x => x.Status)
                     .IsNotEqualTo("Active");
         }
+
+        [Test]
+        public void Test3()
+        {
+            new TestableClass("Active")
+                .When(x => x.SetStatus("Completed"))
+                .ThenValues(x => x.Status, "Completed").AreEqual();
+        }
     }
 
 

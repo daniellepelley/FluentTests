@@ -1,8 +1,9 @@
-using System;
+﻿using System;
 
-namespace FluentsTests.Test
+namespace FluentTests
 {
-    public class SutBuilder<TSut> : ISutBuilder<TSut>
+    public class SutBuilder<TSut>
+        : ISutBuilder<TSut>
     {
         public TSut Build()
         {

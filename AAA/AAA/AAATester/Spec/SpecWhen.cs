@@ -15,8 +15,15 @@ namespace AAATester.Spec
             return new SpecMethod<TSut>(method);
         }
 
+        public static SpecWhenAnd<TSut> When<TSut>(this TSut sut, params Action<TSut>[] actions)
+        {
+            foreach (var action in actions)
+            {
+                action(sut);
+            }
+            return new SpecWhenAnd<TSut>(sut);
+        }
     }
-
 
     public class SpecMethod<TSut>
     {
@@ -87,8 +94,6 @@ namespace AAATester.Spec
             Assert.AreEqual(value, Execute());
         }
     }
-
-
 
     public class SpecWhen<TSut>
     {

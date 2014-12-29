@@ -1,4 +1,4 @@
-﻿namespace FluentsTests.Test
+﻿namespace FluentTests
 {
     public interface ISutBuilder<TSut>
     {

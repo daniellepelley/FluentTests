@@ -4,14 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5DE9ED2A-6CAE-4D2A-97E7-11F9A825945E}</ProjectGuid>
+    <ProjectGuid>{1C06EA4B-3226-4353-B87D-E7904472D98F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FluentsTests.Test</RootNamespace>
-    <AssemblyName>FluentsTests.Test</AssemblyName>
+    <RootNamespace>FluentTests</RootNamespace>
+    <AssemblyName>FluentTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\FluentsTests.Test\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -33,10 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Moq">
-      <HintPath>..\packages\Moq.4.2.1408.0717\lib\net40\Moq.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\FluentsTests.Test\packages\Moq.4.2.1408.0717\lib\net40\Moq.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,19 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MockerTest.cs" />
-    <Compile Include="TestClasses\ILogger.cs" />
-    <Compile Include="TestClasses\IService.cs" />
-    <Compile Include="TestClasses\NonParameterlessConstructorClass.cs" />
+    <Compile Include="Moq\Mocker.cs" />
+    <Compile Include="Moq\MoqSutBuilder.cs" />
+    <Compile Include="SutBuilder.cs" />
+    <Compile Include="ISutBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SutBuilderTest.cs" />
-    <Compile Include="TestClasses\ParameterlessConstructorClass.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\FluentTests\FluentTests.csproj">
-      <Project>{1c06ea4b-3226-4353-b87d-e7904472d98f}</Project>
-      <Name>FluentTests</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
