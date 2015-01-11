@@ -1,6 +1,7 @@
 ﻿namespace AAATester
 {
-    public interface IBuilder<out TSut>
+    public interface IBuilder<TSut>
+        where TSut : class
     {
         TSut Build();
     }

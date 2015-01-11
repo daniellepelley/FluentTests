@@ -8,7 +8,7 @@ namespace DescribeTests
 {
     public class ActionResult
     {
-        private Dictionary<string, Action> _actions = new Dictionary<string, Action>();
+        private readonly Dictionary<string, Action> _actions = new Dictionary<string, Action>();
 
         public Action this[string index]
         {
