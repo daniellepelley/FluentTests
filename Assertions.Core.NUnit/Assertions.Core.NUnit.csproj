@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2BB99A7C-3127-4CE5-A6E1-1E3DA189A089}</ProjectGuid>
+    <ProjectGuid>{87F99ECA-33FB-4EBC-A35E-E5E4A02816C9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Assertions.Test</RootNamespace>
-    <AssemblyName>Assertions.Test</AssemblyName>
+    <RootNamespace>Assertions.Core.NUnit</RootNamespace>
+    <AssemblyName>Assertions.Core.NUnit</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\Assertions.Test\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -42,18 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IsEqualToTests.cs" />
+    <Compile Include="NUnitAssertionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Assertions.Core.NUnit\Assertions.Core.NUnit.csproj">
-      <Project>{87f99eca-33fb-4ebc-a35e-e5e4a02816c9}</Project>
-      <Name>Assertions.Core.NUnit</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Assertions.Core\Assertions.Core.csproj">
+    <ProjectReference Include="..\Assertions.Core\Assertions.Core.csproj">
       <Project>{16a03fcd-5db1-42a1-97de-6d1341ab8dc4}</Project>
       <Name>Assertions.Core</Name>
     </ProjectReference>
