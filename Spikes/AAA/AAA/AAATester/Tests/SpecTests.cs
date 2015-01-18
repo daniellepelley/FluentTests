@@ -29,10 +29,8 @@ namespace AAATester.Tests
 
             GivenAnActiveStatus()
                 .When(x => x.StatusIsSetTo("Completed"))
-                .Then(x => x.Status)
-                    .IsEqualTo("Completed")
-                .And(x => x.Status)
-                    .IsNotEqualTo("Active");
+                .Then(x => x.Status).IsEqualTo("Completed")
+                .And(x => x.Status).IsNotEqualTo("Active");
         }
 
         [Test]

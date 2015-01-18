@@ -89,8 +89,6 @@ namespace AAATester.Spec
         public object Execute()
         {
             var m = _lambdaExpression.Compile(); 
-
-
             return m.DynamicInvoke(_parameters);
         }
 
@@ -124,6 +122,7 @@ namespace AAATester.Spec
 
 
                     var description = GetDescription(methodName, val);
+                    Console.WriteLine(description);
                 }
 
                 var action = expression.Compile();
@@ -178,11 +177,31 @@ namespace AAATester.Spec
             return new SpecThen<TSut>(_sut);
         }
 
-        public ThenValue<TSut, TValue> Then<TValue>(Func<TSut, TValue> action)
+        private string GetDescription(string methodName, string value)
         {
+            var sb = new StringBuilder();
+
+            foreach (char c in methodName)
+            {
+                if (char.IsUpper(c))
+                {
+                    sb.Append(" ");
+                }
+                sb.Append(c);
+            }
+
+            return "Then " + sb.ToString().Trim() + " '" + value + "'";
+        }
+
+        public ThenValue<TSut, TValue> Then<TValue>(Expression<Func<TSut, TValue>> expression)
+        {
+            var methodCallExp = (MemberExpression) expression.Body;
+            var methodName = methodCallExp.Member.Name;
+            Console.WriteLine("Then " + methodName);
+
             return new ThenValue<TSut, TValue>(
                 new SpecThen<TSut>(_sut),
-                action(_sut));
+                expression.Compile()(_sut));
         }
 
 
@@ -197,8 +216,8 @@ namespace AAATester.Spec
 
     public class ThenValue<TSut, TValue>
     {
-        private SpecThen<TSut> _specThen;
-        private TValue _value1;
+        private readonly SpecThen<TSut> _specThen;
+        private readonly TValue _value1;
 
         public ThenValue(SpecThen<TSut> specThen, TValue value1)
         {
@@ -208,12 +227,14 @@ namespace AAATester.Spec
 
         public SpecThen<TSut> IsEqualTo(TValue value)
         {
+            Console.WriteLine("Is Equal To '" + value + "'");
             Assert.AreEqual(_value1, value);
             return _specThen;
         }
 
         public SpecThen<TSut> IsNotEqualTo(TValue value)
         {
+            Console.WriteLine("Is Not Equal To '" + value + "'");
             Assert.AreNotEqual(_value1, value);
             return _specThen;
         }
