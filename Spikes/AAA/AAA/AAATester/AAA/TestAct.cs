@@ -4,6 +4,7 @@ namespace AAATester.AAA
 {
     public class TestAct<TSut, TBuilder>
         where TBuilder : IBuilder<TSut>
+        where TSut : class
     {
         private readonly TBuilder _builder;
 

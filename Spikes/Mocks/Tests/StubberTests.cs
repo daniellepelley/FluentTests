@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using Moq;
+﻿using Moq;
 using NUnit.Framework;
 using Stubber.Tests.TestClasses;
 
