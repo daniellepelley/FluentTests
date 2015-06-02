@@ -6,7 +6,6 @@ using NUnit.Framework;
 
 namespace Assertions.Test
 {
-    
     public class IsEqualToTests
     {
         public IsEqualToTests()
@@ -19,7 +18,24 @@ namespace Assertions.Test
         {
             "This".IsEqualTo("This");
         }
+
+        [Test]
+        public void IsEqualToWithMessage()
+        {
+            "This".IsEqualTo("This", "Passed");
+        }
+
+        [Test]
+        public void IsNotEqualTo()
+        {
+            "This".IsNotEqualTo("That");
+        }
+
+        [Test]
+        public void IsNotEqualToWithMessage()
+        {
+            "This".IsNotEqualTo("That", "Failed");
+        }
+
     }
-
-
 }

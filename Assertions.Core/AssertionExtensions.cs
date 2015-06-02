@@ -15,19 +15,24 @@ namespace Assertions.Core
             AssertionService.AreEqual(source, value);
         }
 
+        public static void IsEqualTo<T>(this T source, T value, string message)
+        {
+            AssertionService.AreEqual(source, value, message);
+        }
+
+        public static void IsNotEqualTo<T>(this T source, T value)
+        {
+            AssertionService.AreNotEqual(source, value);
+        }
+
+        public static void IsNotEqualTo<T>(this T source, T value, string message)
+        {
+            AssertionService.AreNotEqual(source, value, message);
+        }
+
         static AssertionExtensions()
         {
-            //var directoryName = new FileInfo(Assembly.GetExecutingAssembly().Location).DirectoryName;
 
-            //var importFile = 
-            //    Directory.GetFiles(directoryName)
-            //    .FirstOrDefault(x => x.StartsWith("Assertions.Test") && x.EndsWith(".dll"));
-
-            //var type = Assembly.LoadFrom(importFile)
-            //    .GetTypes()
-            //    .FirstOrDefault(x => x.IsAssignableFrom(typeof (IAssertionService)));
-
-            //assertionService = (IAssertionService)Activator.CreateInstance(type);
         }
     }
 }
