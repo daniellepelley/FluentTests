@@ -10,16 +10,13 @@ namespace SutBuilder.Moq
             return MockToObject(type, CreateMock(type));
         }
 
-        private object CreateMock(Type type)
+        private static object CreateMock(Type type)
         {
             var constructorInfo = typeof(Mock<>).MakeGenericType(type)
                 .GetConstructor(Type.EmptyTypes);
 
-            if (constructorInfo == null)
-            {
-                return null;
-            }
             var mock =
+                // ReSharper disable once PossibleNullReferenceException
                 constructorInfo
                     .Invoke(new object[] { });
             return mock;

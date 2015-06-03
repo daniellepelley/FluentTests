@@ -17,7 +17,7 @@ namespace SutBuilder
 
             if (constructorInfo == null)
             {
-                throw new ConstructorNotFoundException("No parameterless constuctor found");
+                throw new ConstructorNotFoundException("No parameterless constructor found");
             }
             return constructorInfo;
         }

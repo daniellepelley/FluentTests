@@ -1,6 +1,4 @@
-using System;
 using FluentsTests.Test.TestClasses;
-using FluentTests;
 using FluentTests.Moq;
 using Moq;
 using NUnit.Framework;
