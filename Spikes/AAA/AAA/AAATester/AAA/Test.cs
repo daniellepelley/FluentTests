@@ -5,6 +5,7 @@ namespace AAATester
 {
     public static class Test<TSut, TBuilder>
         where TBuilder : IBuilder<TSut>
+        where TSut : class
     {
         public static TestAct<TSut, TBuilder> Arrange(Action<TBuilder> action)
         {

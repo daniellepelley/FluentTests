@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{37F681A8-56A1-4A1E-BF5D-D1BF860054B4}</ProjectGuid>
+    <ProjectGuid>{55CA6400-B0B5-4495-BEDF-E206384F1E3F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Stubber</RootNamespace>
-    <AssemblyName>Stubber</AssemblyName>
+    <RootNamespace>SutBuilder.Moq</RootNamespace>
+    <AssemblyName>SutBuilder.Moq</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\FluentsTests.Test\</SolutionDir>
@@ -33,10 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Moq">
-      <HintPath>packages\Moq.4.2.1408.0717\lib\net40\Moq.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\FluentsTests.Test\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\FluentsTests.Test\packages\Moq.4.2.1408.0717\lib\net40\Moq.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -48,14 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FluentMock.cs" />
-    <Compile Include="Mocker.cs" />
+    <Compile Include="MoqClassConstructor.cs" />
+    <Compile Include="MoqFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\StubberTests.cs" />
-    <Compile Include="Tests\TestClasses\ILogger.cs" />
-    <Compile Include="Tests\TestClasses\IService.cs" />
-    <Compile Include="Tests\TestClasses\IService2.cs" />
-    <Compile Include="Tests\TestClasses\MainClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SutBuilder\SutBuilder.csproj">
+      <Project>{967130f0-ff11-4178-ace0-bae0bcfa6e34}</Project>
+      <Name>SutBuilder</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

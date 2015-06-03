@@ -12,9 +12,7 @@ namespace Stubber.Tests
         public void ActivateCreatesInstanceOfTheClass()
         {
             var sut = new Mocker<MainClass>();
-
             var actual = sut.Activate();
-
             Assert.IsInstanceOf<MainClass>(actual);
         }
 
@@ -81,14 +79,14 @@ namespace Stubber.Tests
         public void FluentStubber2()
         {
             FluentMock<MainClass>
-               .When(m =>
-               {
-                   m.Log("foo");
-                   m.CallService("foo");
-                   m.CallService("foo");
-               })
-               .Verify<ILogger>((x, m) => x == m.Logger)
-               .Verify<IService>((x, m) => x == m.Service);
+                .When(m =>
+                {
+                    m.Log("foo");
+                    m.CallService("foo");
+                    m.CallService("foo");
+                })
+                .Verify<ILogger>((x, m) => x == m.Logger)
+                .Verify<IService>((x, m) => x == m.Service);
         }
     }
 }
