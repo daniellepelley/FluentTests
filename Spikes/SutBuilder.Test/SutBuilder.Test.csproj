@@ -50,6 +50,8 @@
     <Compile Include="SutBuilderTests.cs" />
     <Compile Include="DemoClassess\DemoSimpleClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SutTests.cs" />
+    <Compile Include="SutTestsImplementation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

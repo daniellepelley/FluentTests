@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MoqClassConstructor.cs" />
+    <Compile Include="MoqDependencyResolver.cs" />
     <Compile Include="MoqFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

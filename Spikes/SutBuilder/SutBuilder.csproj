@@ -39,11 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivatorDependencyResolver.cs" />
     <Compile Include="ClassConstructor.cs" />
     <Compile Include="ConstructorGetter.cs" />
     <Compile Include="ConstructorNotFoundException.cs" />
     <Compile Include="IClassConstructor.cs" />
     <Compile Include="IConstructorGetter.cs" />
+    <Compile Include="IDependencyResolver.cs" />
     <Compile Include="IFactory.cs" />
     <Compile Include="ISutBuilder.cs" />
     <Compile Include="ParameterlessConstructorGetter.cs" />

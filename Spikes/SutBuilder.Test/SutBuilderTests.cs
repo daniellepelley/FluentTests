@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using SutBuilder.Moq;
 using SutBuilder.Test.DemoClassess;
 
@@ -24,7 +19,7 @@ namespace SutBuilder.Test
         public void SutBuilderWithParameterlessConstuctorException()
         {
             var sutBuilder = new SutBuilder<DemoClassWithServices>(new ParameterlessConstructorGetter<DemoClassWithServices>(), new ClassConstructor<DemoClassWithServices>());
-            var sut = sutBuilder.Build();
+            sutBuilder.Build();
         }
 
         [Test]
@@ -34,6 +29,5 @@ namespace SutBuilder.Test
             var sut = sutBuilder.Build();
             Assert.IsNotNull(sut);
         }
-
     }
 }
