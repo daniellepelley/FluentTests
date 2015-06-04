@@ -1,7 +1,10 @@
-﻿namespace FluentTests.Moq
+﻿using SutBuilder;
+
+namespace FluentTests.Moq
 {
     public class MoqSutBuilder<TSut>
         : ISutBuilder<TSut>
+        where TSut : class
     {
         public TSut Build()
         {

@@ -5,6 +5,30 @@ using Moq;
 
 namespace FluentTests.Moq
 {
+    public class Mocker
+    {
+        public static object DynamicMock(Type type)
+        {
+            var constructorInfo = typeof(Mock<>).MakeGenericType(type).GetConstructor(Type.EmptyTypes);
+            if (constructorInfo != null)
+            {
+                var mock = constructorInfo.Invoke(new object[] { });
+                return mock;
+            }
+            return null;
+        }
+
+        public static object MockToObject(Type type, object mock)
+        {
+            if (mock is Mock)
+            {
+                return mock.GetType().GetProperty("Object", type).GetValue(mock, new object[] { });
+            }
+
+            return mock;
+        }
+    }
+
     public class Mocker<T>
     {
         private Dictionary<Type, object> _mocks;
@@ -55,30 +79,6 @@ namespace FluentTests.Moq
                 }
             }
             return Mocker.DynamicMock(type);
-        }
-    }
-
-    public class Mocker
-    {
-        public static object DynamicMock(Type type)
-        {
-            var constructorInfo = typeof(Mock<>).MakeGenericType(type).GetConstructor(Type.EmptyTypes);
-            if (constructorInfo != null)
-            {
-                var mock = constructorInfo.Invoke(new object[] { });
-                return mock;
-            }
-            return null;
-        }
-
-        public static object MockToObject(Type type, object mock)
-        {
-            if (mock is Mock)
-            {
-                return mock.GetType().GetProperty("Object", type).GetValue(mock, new object[] { });
-            }
-
-            return mock;
         }
     }
 }
