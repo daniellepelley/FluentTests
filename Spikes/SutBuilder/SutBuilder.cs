@@ -17,4 +17,12 @@
             return _classConstructor.Build(constructorInfo);
         }
     }
+
+    public class SutBuilder
+    {
+        public dynamic Build()
+        {
+            return new {};
+        }
+    }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 using AAATester.Spec;
 using NUnit.Framework;
 
@@ -38,6 +39,13 @@ namespace AAATester.Tests
         [Test]
         public void Test3()
         {
+            new SpecWhen<TestableClass>(new TestableClass("hi"))
+                .Stub()
+                .When(x => x.TimerStart())
+                .Then(x => x.Seconds == 60)
+                .IsEqualTo(13);
+
+
             //new TestableClass("Active")
             //    .When(x => x.SetStatus("Completed"))
             //    .ThenValues(x => x.Status, "Completed").AreEqual();

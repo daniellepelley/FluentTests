@@ -103,7 +103,6 @@ namespace AAATester.Spec
 
     public class SpecWhen<TSut>
     {
-
         internal readonly TSut _sut;
 
         public SpecWhen(TSut sut)
@@ -153,6 +152,12 @@ namespace AAATester.Spec
         public SpecThen<TSut> Then()
         {
             return new SpecThen<TSut>(_sut);
+        }
+
+        public SpecWhen<dynamic> Stub()
+        {
+            Assert.Inconclusive("Tested stubbed out");
+            return new SpecWhen<dynamic>(new {});
         }
     }
 
@@ -220,4 +225,54 @@ namespace AAATester.Spec
         }
 
     }
+
+
+
+    public static class Spec
+    {
+        public static SpecWhen When(string className)
+        {
+            Assert.Fail(className + " not implemented");
+            return new SpecWhen(new {});
+        }
+    }
+
+
+    public class SpecWhen
+    {
+        internal readonly dynamic _sut;
+
+        public SpecWhen(dynamic sut)
+        {
+            _sut = sut;
+        }
+
+        public SpecWhenAnd<dynamic> When(Action<dynamic> action)
+        {
+            return new SpecWhenAnd<dynamic>(_sut);
+        }
+
+        private string GetDescription(string methodName, string value)
+        {
+            var sb = new StringBuilder();
+
+            foreach (char c in methodName)
+            {
+                if (char.IsUpper(c))
+                {
+                    sb.Append(" ");
+                }
+                sb.Append(c);
+            }
+
+            return "When " + sb.ToString().Trim() + " '" + value + "'";
+        }
+
+        public SpecThen<dynamic> Then()
+        {
+            return new SpecThen<dynamic>(_sut);
+        }
+    }
+
+
 }

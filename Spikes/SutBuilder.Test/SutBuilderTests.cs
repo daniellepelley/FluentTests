@@ -29,5 +29,13 @@ namespace SutBuilder.Test
             var sut = sutBuilder.Build();
             Assert.IsNotNull(sut);
         }
+
+        [Test]
+        public void SutBuilderStubs()
+        {
+            var sutBuilder = new SutBuilder();
+            var sut = sutBuilder.Build();
+            Assert.IsNotNull(sut);
+        }
     }
 }
