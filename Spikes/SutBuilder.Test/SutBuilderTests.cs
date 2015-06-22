@@ -9,7 +9,7 @@ namespace SutBuilder.Test
         [Test]
         public void SutBuilderWithParameterlessConstuctor()
         {
-            var sutBuilder = new SutBuilder<DemoSimpleClass>(new ParameterlessConstructorGetter<DemoSimpleClass>(), new ClassConstructor<DemoSimpleClass>());
+            var sutBuilder = new SutBuilder<DemoSimpleClass>(new ParameterlessConstructorProvider<DemoSimpleClass>(), new ClassConstructor<DemoSimpleClass>());
             var sut = sutBuilder.Build();
             Assert.IsNotNull(sut);
         }
@@ -18,14 +18,14 @@ namespace SutBuilder.Test
         [ExpectedException(typeof(ConstructorNotFoundException))]
         public void SutBuilderWithParameterlessConstuctorException()
         {
-            var sutBuilder = new SutBuilder<DemoClassWithServices>(new ParameterlessConstructorGetter<DemoClassWithServices>(), new ClassConstructor<DemoClassWithServices>());
+            var sutBuilder = new SutBuilder<DemoClassWithServices>(new ParameterlessConstructorProvider<DemoClassWithServices>(), new ClassConstructor<DemoClassWithServices>());
             sutBuilder.Build();
         }
 
         [Test]
         public void SutBuilderWithConstuctorWithParameters()
         {
-            var sutBuilder = new SutBuilder<DemoClassWithServices>(new ConstructorGetter<DemoClassWithServices>(), new MoqClassConstructor<DemoClassWithServices>());
+            var sutBuilder = new SutBuilder<DemoClassWithServices>(new ConstructorProvider<DemoClassWithServices>(), new MoqClassConstructor<DemoClassWithServices>());
             var sut = sutBuilder.Build();
             Assert.IsNotNull(sut);
         }

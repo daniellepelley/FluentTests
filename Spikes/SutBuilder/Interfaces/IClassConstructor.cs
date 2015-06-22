@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace SutBuilder
+namespace SutBuilder.Interfaces
 {
     public interface IClassConstructor<T>
     {

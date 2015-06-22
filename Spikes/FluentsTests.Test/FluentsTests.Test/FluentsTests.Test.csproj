@@ -61,6 +61,14 @@
       <Project>{1c06ea4b-3226-4353-b87d-e7904472d98f}</Project>
       <Name>FluentTests</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\SutBuilder.Moq\SutBuilder.Moq.csproj">
+      <Project>{55ca6400-b0b5-4495-bedf-e206384f1e3f}</Project>
+      <Name>SutBuilder.Moq</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SutBuilder\SutBuilder.csproj">
+      <Project>{967130f0-ff11-4178-ace0-bae0bcfa6e34}</Project>
+      <Name>SutBuilder</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

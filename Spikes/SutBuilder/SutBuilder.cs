@@ -1,19 +1,21 @@
-﻿namespace SutBuilder
+﻿using SutBuilder.Interfaces;
+
+namespace SutBuilder
 {
     public class SutBuilder<T> : ISutBuilder<T> where T : class
     {
-        private readonly IConstructorGetter<T> _constructorGetter;
+        private readonly IConstructorProvider<T> _constructorProvider;
         private readonly IClassConstructor<T> _classConstructor;
 
-        public SutBuilder(IConstructorGetter<T> constructorGetter, IClassConstructor<T> classConstructor)
+        public SutBuilder(IConstructorProvider<T> constructorProvider, IClassConstructor<T> classConstructor)
         {
             _classConstructor = classConstructor;
-            _constructorGetter = constructorGetter;
+            _constructorProvider = constructorProvider;
         }
 
         public T Build()
         {
-            var constructorInfo =_constructorGetter.Get();
+            var constructorInfo =_constructorProvider.Get();
             return _classConstructor.Build(constructorInfo);
         }
     }

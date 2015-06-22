@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SutBuilder
+namespace SutBuilder.Interfaces
 {
     public interface IDependencyResolver
     {

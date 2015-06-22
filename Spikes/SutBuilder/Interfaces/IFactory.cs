@@ -1,4 +1,4 @@
-﻿namespace SutBuilder
+﻿namespace SutBuilder.Interfaces
 {
     public interface IFactory<T>
     {

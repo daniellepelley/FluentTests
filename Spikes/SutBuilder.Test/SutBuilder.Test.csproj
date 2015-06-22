@@ -47,16 +47,21 @@
     <Compile Include="DemoClassess\DemoClassWithServices.cs" />
     <Compile Include="DemoClassess\IServiceType1.cs" />
     <Compile Include="DemoClassess\IServiceType2.cs" />
+    <Compile Include="Given.cs" />
     <Compile Include="SutBuilderTests.cs" />
     <Compile Include="DemoClassess\DemoSimpleClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SutTests.cs" />
-    <Compile Include="SutTestsImplementation.cs" />
+    <Compile Include="MoqSutTests.cs" />
+    <Compile Include="MoqSutTestsImplementation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FluentTests.Core\FluentTests.Core.csproj">
+      <Project>{315263EB-67E2-45E4-9DA0-FA97F1058891}</Project>
+      <Name>FluentTests.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SutBuilder.Moq\SutBuilder.Moq.csproj">
       <Project>{55ca6400-b0b5-4495-bedf-e206384f1e3f}</Project>
       <Name>SutBuilder.Moq</Name>

@@ -2,6 +2,7 @@
 using System.Text;
 using System.Threading.Tasks;
 using Moq;
+using SutBuilder.Interfaces;
 
 namespace SutBuilder.Moq
 {

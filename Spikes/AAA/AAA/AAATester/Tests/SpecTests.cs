@@ -39,12 +39,12 @@ namespace AAATester.Tests
         [Test]
         public void Test3()
         {
-            new SpecWhen<TestableClass>(new TestableClass("hi"))
-                .Stub()
-                .When(x => x.TimerStart())
-                .Then(x => x.Seconds == 60)
-                .IsEqualTo(13);
-
+            //new SpecWhen<TestableClass>(new TestableClass("hi"))
+            //    .Stub()
+            //    .When(x => x.TimerStart())
+            //    .Then(x => x.Seconds == 60)
+            //    .IsEqualTo(13);
+            
 
             //new TestableClass("Active")
             //    .When(x => x.SetStatus("Completed"))

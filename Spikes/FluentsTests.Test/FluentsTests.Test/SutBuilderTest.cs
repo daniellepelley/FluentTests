@@ -11,7 +11,7 @@ namespace FluentsTests.Test
         [Test]
         public void CreatesAnInstanceOfClassWithParameterlessConstructor()
         {
-            var sut = new SutBuilder<ParameterlessConstructorClass>();
+            var sut = new MoqSutBuilder<ParameterlessConstructorClass>();
             var result = sut.Build();
             Assert.IsInstanceOf<ParameterlessConstructorClass>(result);
         }

@@ -29,8 +29,7 @@ namespace DescribeTests
         public void Test1()
         {
             Run("This is yes",
-                "This is no"
-                );
+                "This is no");
 
             Assert.AreEqual("No", str);
         }

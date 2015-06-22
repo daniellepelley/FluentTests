@@ -2,11 +2,12 @@
 using System.Linq;
 using System.Reflection;
 using System.Threading;
+using SutBuilder.Interfaces;
 
 namespace SutBuilder
 {
-    public class ParameterlessConstructorGetter<T>
-        : IConstructorGetter<T>
+    public class ParameterlessConstructorProvider<T>
+        : IConstructorProvider<T>
         where T : class
     {
         public ConstructorInfo Get()

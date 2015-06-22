@@ -1,10 +1,11 @@
 ﻿using System.Linq;
 using System.Reflection;
+using SutBuilder.Interfaces;
 
 namespace SutBuilder
 {
-    public class ConstructorGetter<T>
-        : IConstructorGetter<T>
+    public class ConstructorProvider<T>
+        : IConstructorProvider<T>
         where T : class
     {
         public ConstructorInfo Get()
