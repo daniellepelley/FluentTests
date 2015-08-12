@@ -2,8 +2,9 @@
 
 namespace SutBuilder.Interfaces
 {
-    public interface IConstructorProvider<T>
+    public interface IConstructorProvider
     {
-        ConstructorInfo Get();
+        ConstructorInfo Get<T>()
+            where T : class;
     }
 }

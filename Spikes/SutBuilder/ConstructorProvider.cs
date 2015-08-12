@@ -4,11 +4,11 @@ using SutBuilder.Interfaces;
 
 namespace SutBuilder
 {
-    public class ConstructorProvider<T>
-        : IConstructorProvider<T>
-        where T : class
+    public class ConstructorProvider
+        : IConstructorProvider
     {
-        public ConstructorInfo Get()
+        public ConstructorInfo Get<T>()
+            where T : class
         {
             return typeof(T)
                 .GetConstructors()

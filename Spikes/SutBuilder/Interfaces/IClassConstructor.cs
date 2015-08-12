@@ -2,8 +2,8 @@
 
 namespace SutBuilder.Interfaces
 {
-    public interface IClassConstructor<T>
+    public interface IClassConstructor
     {
-        T Build(ConstructorInfo constructorInfo);
+        T Build<T>(ConstructorInfo constructorInfo);
     }
 }

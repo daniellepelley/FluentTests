@@ -1,9 +1,6 @@
-﻿using System.Linq;
-using System.Reflection;
-
-namespace SutBuilder.Moq
+﻿namespace SutBuilder.Moq
 {
-    public class MoqClassConstructor<T> : ClassConstructor<T>
+    public class MoqClassConstructor : ClassConstructor
     {
         public MoqClassConstructor()
             : base(new MoqDependencyResolver())

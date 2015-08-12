@@ -1,18 +1,26 @@
-﻿namespace SutBuilder
+﻿using SutBuilder.Interfaces;
+
+namespace SutBuilder
 {
-    public static class Sut<T>
-        where T : class
+    public static class Sut
     {
-        public static readonly SutBuilder<T> SutBuilder;
+        private static IClassConstructor _classConstructor;
 
         static Sut()
         {
-            SutBuilder = new SutBuilder<T>(new ConstructorProvider<T>(), new ClassConstructor<T>());
+            _classConstructor = new ClassConstructor();
         }
 
-        public static T Create()
+        public static T Create<T>()
+            where T : class
         {
-            return SutBuilder.Build();
+            var sutBuilder = new SutBuilder<T>(new ConstructorProvider(), _classConstructor);
+            return sutBuilder.Build();
+        }
+
+        public static void SetClassConstructor(IClassConstructor classConstructor)
+        {
+            _classConstructor = classConstructor;
         }
     }
 }

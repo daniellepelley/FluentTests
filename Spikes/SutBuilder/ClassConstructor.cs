@@ -4,7 +4,7 @@ using SutBuilder.Interfaces;
 
 namespace SutBuilder
 {
-    public class ClassConstructor<T> : IClassConstructor<T>
+    public class ClassConstructor : IClassConstructor
     {
         private readonly IDependencyResolver _dependencyResolver;
 
@@ -17,7 +17,7 @@ namespace SutBuilder
             _dependencyResolver = dependencyResolver;
         }
 
-        public T Build(ConstructorInfo constructor)
+        public T Build<T>(ConstructorInfo constructor)
         {
             var parameters = constructor
                 .GetParameters()

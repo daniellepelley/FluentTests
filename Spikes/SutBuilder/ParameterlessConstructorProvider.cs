@@ -6,13 +6,13 @@ using SutBuilder.Interfaces;
 
 namespace SutBuilder
 {
-    public class ParameterlessConstructorProvider<T>
-        : IConstructorProvider<T>
-        where T : class
+    public class ParameterlessConstructorProvider
+        : IConstructorProvider
     {
-        public ConstructorInfo Get()
+        public ConstructorInfo Get<T>()
+            where T : class
         {
-            var constructorInfo = typeof (T)
+            var constructorInfo = typeof(T)
                 .GetConstructors()
                 .FirstOrDefault(x => !x.GetParameters().Any());
 

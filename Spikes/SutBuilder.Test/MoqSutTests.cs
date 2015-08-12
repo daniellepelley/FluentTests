@@ -7,7 +7,7 @@ namespace SutBuilder.Test
         where T : class
     {
         public MoqSutTests()
-            :base(new MoqClassConstructor<T>(), new ConstructorProvider<T>())
+            :base(new MoqClassConstructor(), new ConstructorProvider())
         { }
 
         public IGiven<T> Given(T sut)

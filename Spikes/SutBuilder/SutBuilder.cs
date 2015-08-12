@@ -4,10 +4,10 @@ namespace SutBuilder
 {
     public class SutBuilder<T> : ISutBuilder<T> where T : class
     {
-        private readonly IConstructorProvider<T> _constructorProvider;
-        private readonly IClassConstructor<T> _classConstructor;
+        private readonly IConstructorProvider _constructorProvider;
+        private readonly IClassConstructor _classConstructor;
 
-        public SutBuilder(IConstructorProvider<T> constructorProvider, IClassConstructor<T> classConstructor)
+        public SutBuilder(IConstructorProvider constructorProvider, IClassConstructor classConstructor)
         {
             _classConstructor = classConstructor;
             _constructorProvider = constructorProvider;
@@ -15,8 +15,8 @@ namespace SutBuilder
 
         public T Build()
         {
-            var constructorInfo =_constructorProvider.Get();
-            return _classConstructor.Build(constructorInfo);
+            var constructorInfo =_constructorProvider.Get<T>();
+            return _classConstructor.Build<T>(constructorInfo);
         }
     }
 

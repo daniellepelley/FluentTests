@@ -5,10 +5,10 @@ namespace SutBuilder
     public class SutTests<T>
         where T : class
     {
-        private readonly IClassConstructor<T> _classConstructor;
-        private readonly IConstructorProvider<T> _constructorProvider;
+        private readonly IClassConstructor _classConstructor;
+        private readonly IConstructorProvider _constructorProvider;
 
-        public SutTests(IClassConstructor<T> classConstructor, IConstructorProvider<T> constructorProvider)
+        public SutTests(IClassConstructor classConstructor, IConstructorProvider constructorProvider)
         {
             _constructorProvider = constructorProvider;
             _classConstructor = classConstructor;
